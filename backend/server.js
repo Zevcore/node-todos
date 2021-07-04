@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const { port } = require('./config');
 
-app.get('/', (req, res) => {
-    res.send('Serwer działa');
-});
+// router
+const router = require('./routes/web');
+app.use('/', router);
 
+// server listener
 app.listen(port, () => {
     console.log("Serwer wystartował!");
 });
